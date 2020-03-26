@@ -9,6 +9,9 @@
 import UIKit
 
 class MCProductsController: UIViewController {
+    
+    fileprivate let tableView = UITableView()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +30,22 @@ class MCProductsController: UIViewController {
     
     fileprivate func setupAddToCartButton(){
         
-    }
-    fileprivate func setupTableView(){
-        
         let cart = MCButton(text: "Cart")
         view.addSubview(cart)
         
         cart.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -25).isActive = true
         cart.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
+        
+    }
+    fileprivate func setupTableView(){
+        
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
+
         
     }
    

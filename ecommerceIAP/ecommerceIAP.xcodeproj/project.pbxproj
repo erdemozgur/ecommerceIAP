@@ -68,11 +68,8 @@
 				B4ABB00B242CAB2C00327A01 /* Assets.xcassets */,
 				B4ABB00D242CAB2C00327A01 /* LaunchScreen.storyboard */,
 				B4ABB010242CAB2C00327A01 /* Info.plist */,
-				B4ABB016242CC05D00327A01 /* MCNavigationController.swift */,
-				B4ABB018242CC1DA00327A01 /* MCProductsController.swift */,
-				B4ABB01A242CC28600327A01 /* MCCartController.swift */,
-				B4ABB01C242CC31D00327A01 /* MCButton.swift */,
-				B4ABB01E242CD8BC00327A01 /* UIColor + Extensions.swift */,
+				B4ABB021242CE3FF00327A01 /* Custom Items */,
+				B4ABB022242CE40800327A01 /* Extensions */,
 			);
 			path = ecommerceIAP;
 			sourceTree = "<group>";
@@ -80,8 +77,27 @@
 		B4ABB020242CE2A800327A01 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B4ABB016242CC05D00327A01 /* MCNavigationController.swift */,
+				B4ABB018242CC1DA00327A01 /* MCProductsController.swift */,
+				B4ABB01A242CC28600327A01 /* MCCartController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B4ABB021242CE3FF00327A01 /* Custom Items */ = {
+			isa = PBXGroup;
+			children = (
+				B4ABB01C242CC31D00327A01 /* MCButton.swift */,
+			);
+			path = "Custom Items";
+			sourceTree = "<group>";
+		};
+		B4ABB022242CE40800327A01 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B4ABB01E242CD8BC00327A01 /* UIColor + Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

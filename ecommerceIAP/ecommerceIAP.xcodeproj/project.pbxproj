@@ -16,6 +16,7 @@
 		B4ABB01B242CC28600327A01 /* MCCartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ABB01A242CC28600327A01 /* MCCartController.swift */; };
 		B4ABB01D242CC31D00327A01 /* MCButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ABB01C242CC31D00327A01 /* MCButton.swift */; };
 		B4ABB01F242CD8BC00327A01 /* UIColor + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ABB01E242CD8BC00327A01 /* UIColor + Extensions.swift */; };
+		B4E7E468242DD9AB00343430 /* MCProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E7E467242DD9AB00343430 /* MCProductCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B4ABB01A242CC28600327A01 /* MCCartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCCartController.swift; sourceTree = "<group>"; };
 		B4ABB01C242CC31D00327A01 /* MCButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCButton.swift; sourceTree = "<group>"; };
 		B4ABB01E242CD8BC00327A01 /* UIColor + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extensions.swift"; sourceTree = "<group>"; };
+		B4E7E467242DD9AB00343430 /* MCProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCProductCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		B4ABB001242CAB2900327A01 /* ecommerceIAP */ = {
 			isa = PBXGroup;
 			children = (
+				B4E7E466242DD98D00343430 /* Views */,
 				B4ABB020242CE2A800327A01 /* Controllers */,
 				B4ABB002242CAB2900327A01 /* AppDelegate.swift */,
 				B4ABB004242CAB2900327A01 /* SceneDelegate.swift */,
@@ -98,6 +101,14 @@
 				B4ABB01E242CD8BC00327A01 /* UIColor + Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B4E7E466242DD98D00343430 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B4E7E467242DD9AB00343430 /* MCProductCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +188,7 @@
 				B4ABB01B242CC28600327A01 /* MCCartController.swift in Sources */,
 				B4ABB019242CC1DA00327A01 /* MCProductsController.swift in Sources */,
 				B4ABB017242CC05D00327A01 /* MCNavigationController.swift in Sources */,
+				B4E7E468242DD9AB00343430 /* MCProductCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

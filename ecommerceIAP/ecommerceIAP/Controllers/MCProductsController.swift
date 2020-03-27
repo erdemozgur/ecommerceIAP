@@ -17,27 +17,26 @@ class MCProductsController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-        setupAddToCartButton()
         setupTableView()
+        setupAddToCartButton()
         
     }
-    fileprivate func setupUI(){
+    fileprivate func setupUI() {
         
         view.backgroundColor = .white
         navigationItem.title = "maxreads"
         
     }
     
-    fileprivate func setupAddToCartButton(){
+    fileprivate func setupAddToCartButton() {
         
         let cart = MCButton(text: "Cart")
         view.addSubview(cart)
-        
         cart.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -25).isActive = true
         cart.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
         
     }
-    fileprivate func setupTableView(){
+    fileprivate func setupTableView() {
         
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -45,10 +44,34 @@ class MCProductsController: UIViewController {
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
-
+        tableView.register(MCProductCell.self, forCellReuseIdentifier: "CELL")
+        tableView.dataSource = self
         
     }
    
+}
 
+extension MCProductsController: UITableViewDelegate {
+    
+    
+    
+    
+}
 
+extension MCProductsController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 4
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CELL", for: indexPath) as! MCProductCell
+        cell.textLabel?.text = "this is a cell"
+        return cell
+        
+    }
+ 
 }

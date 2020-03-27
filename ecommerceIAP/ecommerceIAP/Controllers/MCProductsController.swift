@@ -64,7 +64,7 @@ extension MCProductsController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 4
+        return products.count
         
     }
     
@@ -72,8 +72,13 @@ extension MCProductsController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CELL", for: indexPath) as! MCProductCell
         cell.selectionStyle = .none
+        let product = products[indexPath.row]
+        cell.product = product
+        cell.selectionStyle = .none
+        
         return cell
         
     }
+    
  
 }

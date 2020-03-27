@@ -10,7 +10,23 @@ import UIKit
 
 class MCProductCell: UITableViewCell {
     
-    let productImage: UIImageView = {
+    var product: MCProduct? {
+        didSet{
+            //modify any view
+            guard let product = product else { return }
+            productImage.image = UIImage(named: product.imageURL)
+            titleLabel.text = product.title
+            authorLabel.text = product.author
+            if product.creditPrice > 1 {
+                creditLabel.text = String(product.creditPrice)  + " credits"
+            }else {
+                creditLabel.text = String(product.creditPrice)  + " credit"
+            }
+            ratingLabel.text = String(product.rating) + "/5"
+        }
+    }
+    
+    fileprivate let productImage: UIImageView = {
         let iv = UIImageView(image: #imageLiteral(resourceName: "1")) //image literal
         iv.contentMode = .scaleAspectFit
         iv.layer.masksToBounds = true
@@ -18,7 +34,7 @@ class MCProductCell: UITableViewCell {
         return iv
     }()
     
-    let titleLabel: UILabel = {
+    fileprivate let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
@@ -26,7 +42,7 @@ class MCProductCell: UITableViewCell {
         return label
     }()
     
-    let authorLabel: UILabel = {
+    fileprivate let authorLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 13, weight: .bold)
@@ -35,7 +51,7 @@ class MCProductCell: UITableViewCell {
         return label
     }()
     
-    let creditLabel: UILabel = {
+    fileprivate let creditLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 12, weight: .bold)
@@ -43,7 +59,7 @@ class MCProductCell: UITableViewCell {
         return label
     }()
     
-    let ratingLabel: UILabel = {
+    fileprivate let ratingLabel: UILabel = {
          let label = UILabel()
          label.translatesAutoresizingMaskIntoConstraints = false
          label.font = UIFont.systemFont(ofSize: 13, weight: .bold)
@@ -52,7 +68,7 @@ class MCProductCell: UITableViewCell {
          return label
      }()
 
-     let addToCartButton:UIButton = {
+     fileprivate let addToCartButton:UIButton = {
          let button = MCButton(text: "+", width: 25, height: 25, hasShadow: false)
          button.layer.cornerRadius = 12.5
          return button
@@ -74,7 +90,6 @@ class MCProductCell: UITableViewCell {
         productImage.widthAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.8).isActive = true
         productImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         
-        
         let stackView = UIStackView(arrangedSubviews: [titleLabel, authorLabel, creditLabel])
         stackView.setCustomSpacing(20, after:  authorLabel)
         stackView.axis = .vertical
@@ -87,11 +102,9 @@ class MCProductCell: UITableViewCell {
         controlsStack.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(controlsStack)
         
-        
         stackView.leadingAnchor.constraint(equalTo: productImage.trailingAnchor, constant: 10).isActive = true
          stackView.trailingAnchor.constraint(equalTo: controlsStack.leadingAnchor, constant: -10).isActive = true
         stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        
         
         controlsStack.leadingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 10).isActive = true
         controlsStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15).isActive = true
@@ -103,6 +116,4 @@ class MCProductCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-
-
 }

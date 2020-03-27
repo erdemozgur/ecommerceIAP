@@ -46,6 +46,7 @@ class MCProductsController: UIViewController {
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
         tableView.register(MCProductCell.self, forCellReuseIdentifier: "CELL")
         tableView.dataSource = self
+        tableView.delegate = self
         
     }
    
@@ -53,9 +54,10 @@ class MCProductsController: UIViewController {
 
 extension MCProductsController: UITableViewDelegate {
     
-    
-    
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+       
 }
 
 extension MCProductsController: UITableViewDataSource {
@@ -69,7 +71,7 @@ extension MCProductsController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CELL", for: indexPath) as! MCProductCell
-        cell.textLabel?.text = "this is a cell"
+        cell.selectionStyle = .none
         return cell
         
     }

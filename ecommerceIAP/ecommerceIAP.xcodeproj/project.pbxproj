@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B45B53A92431E9F0006D327E /* MCPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45B53A82431E9F0006D327E /* MCPopup.swift */; };
 		B4ABB003242CAB2900327A01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ABB002242CAB2900327A01 /* AppDelegate.swift */; };
 		B4ABB005242CAB2900327A01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ABB004242CAB2900327A01 /* SceneDelegate.swift */; };
 		B4ABB00C242CAB2C00327A01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4ABB00B242CAB2C00327A01 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B45B53A82431E9F0006D327E /* MCPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCPopup.swift; sourceTree = "<group>"; };
 		B4ABAFFF242CAB2900327A01 /* ecommerceIAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ecommerceIAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4ABB002242CAB2900327A01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4ABB004242CAB2900327A01 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				B4ABB01C242CC31D00327A01 /* MCButton.swift */,
+				B45B53A82431E9F0006D327E /* MCPopup.swift */,
 			);
 			path = "Custom Items";
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B45B53A92431E9F0006D327E /* MCPopup.swift in Sources */,
 				B4ABB003242CAB2900327A01 /* AppDelegate.swift in Sources */,
 				B4ABB01D242CC31D00327A01 /* MCButton.swift in Sources */,
 				B4ABB005242CAB2900327A01 /* SceneDelegate.swift in Sources */,

@@ -56,6 +56,7 @@ class MCCartController: UIViewController {
         tableView.separatorStyle = .none
         
     }
+    
     fileprivate func setupCartLabels(){
         
         let lineOne = UIView()
@@ -79,13 +80,39 @@ class MCCartController: UIViewController {
 
  
     }
-    fileprivate func setupCartButtons(){
+    fileprivate func setupCartButtons() {
         
+         let stackSpacing: CGFloat = 20
+         let stackConstants: CGFloat = 20
+         let screenWidth: CGFloat = UIScreen.main.bounds.width
+         let buyButtonWidth: CGFloat = screenWidth - 108 - stackSpacing - (stackConstants * 2)
+
+         let payButton = MCButton(text: "Pay")
+         let buyAnotherCreditButton = MCButton(text: "Buy Another Credit", width: buyButtonWidth)
+
+         let stack = UIStackView(arrangedSubviews: [buyAnotherCreditButton, payButton])
+         stack.translatesAutoresizingMaskIntoConstraints = false
+         stack.spacing = stackSpacing
+
+         view.addSubview(stack)
+
+         stack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+         stack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: stackConstants).isActive = true
+         stack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -stackConstants).isActive = true
+
+         payButton.addTarget(self, action: #selector(handlePay), for: .touchUpInside)
+         buyAnotherCreditButton.addTarget(self, action: #selector(handleBuyAnotherCredit), for: .touchUpInside)
         
-    }
+     }
+
+     @objc fileprivate func handlePay() {
+         print("trying to pay for books.")
+     }
+
+     @objc fileprivate func handleBuyAnotherCredit() {
+         print("trying to open popup to charge user for credit.")
+     }
    
-
-
 }
 
 

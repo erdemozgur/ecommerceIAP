@@ -17,10 +17,17 @@ class MCProductCell: UITableViewCell {
             productImage.image = UIImage(named: product.imageURL)
             titleLabel.text = product.title
             authorLabel.text = product.author
-            if product.creditPrice > 1 {
-                creditLabel.text = String(product.creditPrice)  + " credits"
-            }else {
-                creditLabel.text = String(product.creditPrice)  + " credit"
+            if product.inCart {
+                creditLabel.text = "added to cart"
+                addToCartButton.backgroundColor = .gray
+                addToCartButton.isEnabled = false
+            } else {
+                addToCartButton.isEnabled = true
+                if product.creditPrice > 1 {
+                    creditLabel.text = String(product.creditPrice)  + " credits"
+                }else {
+                    creditLabel.text = String(product.creditPrice)  + " credit"
+                }
             }
             ratingLabel.text = String(product.rating) + "/5"
         }

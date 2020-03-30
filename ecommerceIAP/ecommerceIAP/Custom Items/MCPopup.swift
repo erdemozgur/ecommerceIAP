@@ -20,16 +20,25 @@ class MCPopup: UIView {
 
         
     }
+    //IUVisualEffect
+    fileprivate var effect: UIVisualEffect = UIBlurEffect(style: .prominent)
+    fileprivate lazy var blurView: UIVisualEffectView = UIVisualEffectView(effect: effect)
     
-    @objc fileprivate func animateOut(){
-        
-    }
     
     fileprivate func setupViews() {
+        
+        let screenFrame = UIScreen.main.bounds
+        self.frame = screenFrame
+        blurView.frame = screenFrame
+        self.addSubview(blurView)
         
     }
     
     fileprivate func animateIn() {
+        
+    }
+    
+    @objc fileprivate func animateOut(){
         
     }
     

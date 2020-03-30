@@ -110,8 +110,10 @@ class MCCartController: UIViewController {
      }
 
      @objc fileprivate func handleBuyAnotherCredit() {
-         print("trying to open popup to charge user for credit.")
-     }
+        let popUp = MCPopup()
+        view.addSubview(popUp)
+        
+    }
    
 }
 

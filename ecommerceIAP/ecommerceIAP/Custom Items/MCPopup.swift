@@ -33,7 +33,7 @@ class MCPopup: UIView {
         
         setupViews()
         animateIn()
-        animateOut()
+        
         addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(animateOut)))
 
         
@@ -64,6 +64,15 @@ class MCPopup: UIView {
     
     fileprivate func animateIn() {
         
+        self.container.transform = CGAffineTransform(translationX: 0, y: -self.frame.height)
+        self.alpha = 0
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2, options: .curveEaseOut, animations: {
+            
+            self.container.transform = .identity
+            self.alpha = 1
+            
+        })
         
     }
     

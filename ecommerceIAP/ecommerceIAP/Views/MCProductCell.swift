@@ -10,6 +10,8 @@ import UIKit
 
 class MCProductCell: UITableViewCell {
     
+    var delegate: MCCartProtocol?
+    
     var product: MCProduct? {
         didSet{
             //modify any view
@@ -19,10 +21,13 @@ class MCProductCell: UITableViewCell {
             authorLabel.text = product.author
             if product.inCart {
                 creditLabel.text = "added to cart"
-                addToCartButton.backgroundColor = .gray
-                addToCartButton.isEnabled = false
+                addToCartButton.backgroundColor = .scarletRed
+                addToCartButton.setTitle("-", for: .normal)
+                addToCartButton.isEnabled = true
             } else {
                 addToCartButton.isEnabled = true
+                addToCartButton.backgroundColor = .oceanBlue
+                addToCartButton.setTitle("+", for: .normal)
                 if product.creditPrice > 1 {
                     creditLabel.text = String(product.creditPrice)  + " credits"
                 }else {
@@ -81,10 +86,31 @@ class MCProductCell: UITableViewCell {
          return button
      }()
     
+    @objc fileprivate func handleAddToCart() {
+        
+        guard let delegate = delegate else { return }
+        guard let product = product else { return }
+        delegate.addProductToCart(product: product)
+        
+    }
+    @objc fileprivate func removeHandleFromCart() {
+        
+        guard let delegate = delegate else { return }
+        guard let product = product else { return }
+        
+        delegate.removeProductFromCart(product: product)
+        
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupUI()
+        self.addToCartButton.addTarget(self, action: #selector(handleAddToCart), for: .touchUpInside)
+        self.addToCartButton.addTarget(self, action: #selector(removeHandleFromCart), for: .touchUpInside)
+        
+
+
         
     }
     

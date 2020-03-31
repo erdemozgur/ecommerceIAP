@@ -61,6 +61,51 @@ class MCProductsController: UIViewController {
    
 }
 
+protocol MCCartProtocol {
+    
+    func addProductToCart(product: MCProduct)
+    func removeProductFromCart(product: MCProduct)
+    
+}
+
+extension MCProductsController: MCCartProtocol {
+
+    
+    
+    func addProductToCart(product: MCProduct) {
+        //Copying the product for changing the inCart bool value without  it is important.
+        guard product.inCart == false else { return }
+        var productCopy = product
+        productCopy.inCart = true
+        
+        let indexOfProduct = products.firstIndex { (item) -> Bool in
+            item._id == productCopy._id
+        }
+        
+        products[indexOfProduct ?? 0] = productCopy
+        self.tableView.reloadData()
+        
+    }
+    
+    func removeProductFromCart(product: MCProduct) {
+        
+        guard product.inCart == true else { return }
+        
+        var productCopy = product
+        productCopy.inCart = false
+        
+        //Product copy id nin tüm productlar icindeki  item id ile esit olan yerin index ini ver.
+        let indexOfProduct = products.firstIndex { (item) -> Bool in
+            item._id == productCopy._id
+        }
+        products[indexOfProduct ?? 0] = productCopy
+
+        self.tableView.reloadData()
+        
+    }
+
+}
+
 extension MCProductsController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -82,12 +127,12 @@ extension MCProductsController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CELL", for: indexPath) as! MCProductCell
         cell.selectionStyle = .none
         let product = products[indexPath.row]
+        cell.delegate = self
         cell.product = product
         cell.selectionStyle = .none
         
         return cell
         
     }
-    
  
 }

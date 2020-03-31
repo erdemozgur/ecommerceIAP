@@ -22,11 +22,13 @@ class MCCartController: UIViewController {
     fileprivate let balanceLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 32, weight: .bold)
-        label.text = "Total: 0 credits"
+        label.text = "Balance: 0 credits"
         return label
     }()
     
     fileprivate var booksInCart =  [MCProduct]()
+    
+    fileprivate var balanceCredit: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,6 +124,8 @@ class MCCartController: UIViewController {
          payButton.addTarget(self, action: #selector(handlePay), for: .touchUpInside)
          buyAnotherCreditButton.addTarget(self, action: #selector(handleBuyAnotherCredit), for: .touchUpInside)
         
+
+        
      }
 
      @objc fileprivate func handlePay() {
@@ -130,9 +134,26 @@ class MCCartController: UIViewController {
 
      @objc fileprivate func handleBuyAnotherCredit() {
         let popUp = MCPopup()
+        popUp.buyButton.addTarget(self, action: #selector(self.handleBuy), for: .touchUpInside)
         view.addSubview(popUp)
         
     }
+    
+    @objc func handleBuy() {
+        StoreObserver.iapObserver.purchaseCredit { (success) in
+            if success {
+                self.balanceCredit += 1
+                self.balanceLabel.text = "Balance: \(self.balanceCredit) credits"
+                print("purchase was successful \(self.balanceCredit)")
+                
+                
+            } else {
+                print("purchase was NOT successful")
+            }
+        }
+    }
+    
+
    
 }
 

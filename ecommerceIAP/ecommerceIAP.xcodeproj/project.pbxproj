@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B45B53A92431E9F0006D327E /* MCPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45B53A82431E9F0006D327E /* MCPopup.swift */; };
+		B45B53AB24322CE3006D327E /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45B53AA24322CE3006D327E /* IAPManager.swift */; };
 		B4ABB003242CAB2900327A01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ABB002242CAB2900327A01 /* AppDelegate.swift */; };
-		B4ABB005242CAB2900327A01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ABB004242CAB2900327A01 /* SceneDelegate.swift */; };
 		B4ABB00C242CAB2C00327A01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4ABB00B242CAB2C00327A01 /* Assets.xcassets */; };
 		B4ABB00F242CAB2C00327A01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4ABB00D242CAB2C00327A01 /* LaunchScreen.storyboard */; };
 		B4ABB017242CC05D00327A01 /* MCNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ABB016242CC05D00327A01 /* MCNavigationController.swift */; };
@@ -24,9 +24,9 @@
 
 /* Begin PBXFileReference section */
 		B45B53A82431E9F0006D327E /* MCPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCPopup.swift; sourceTree = "<group>"; };
+		B45B53AA24322CE3006D327E /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		B4ABAFFF242CAB2900327A01 /* ecommerceIAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ecommerceIAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4ABB002242CAB2900327A01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B4ABB004242CAB2900327A01 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B4ABB00B242CAB2C00327A01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4ABB00E242CAB2C00327A01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4ABB010242CAB2C00327A01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,12 +74,12 @@
 				B4E7E466242DD98D00343430 /* Views */,
 				B4ABB020242CE2A800327A01 /* Controllers */,
 				B4ABB002242CAB2900327A01 /* AppDelegate.swift */,
-				B4ABB004242CAB2900327A01 /* SceneDelegate.swift */,
 				B4ABB00B242CAB2C00327A01 /* Assets.xcassets */,
 				B4ABB00D242CAB2C00327A01 /* LaunchScreen.storyboard */,
 				B4ABB010242CAB2C00327A01 /* Info.plist */,
 				B4ABB021242CE3FF00327A01 /* Custom Items */,
 				B4ABB022242CE40800327A01 /* Extensions */,
+				B45B53AA24322CE3006D327E /* IAPManager.swift */,
 			);
 			path = ecommerceIAP;
 			sourceTree = "<group>";
@@ -198,10 +198,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B45B53AB24322CE3006D327E /* IAPManager.swift in Sources */,
 				B45B53A92431E9F0006D327E /* MCPopup.swift in Sources */,
 				B4ABB003242CAB2900327A01 /* AppDelegate.swift in Sources */,
 				B4ABB01D242CC31D00327A01 /* MCButton.swift in Sources */,
-				B4ABB005242CAB2900327A01 /* SceneDelegate.swift in Sources */,
 				B4E7E46B242DF83B00343430 /* MCProduct.swift in Sources */,
 				B4ABB01F242CD8BC00327A01 /* UIColor + Extensions.swift in Sources */,
 				B4E7E46D242E16EF00343430 /* MCCartCell.swift in Sources */,
@@ -347,6 +347,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6T542AJZ28;
 				INFOPLIST_FILE = ecommerceIAP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -354,7 +355,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.iMedre.ecommerceIAP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -365,6 +366,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6T542AJZ28;
 				INFOPLIST_FILE = ecommerceIAP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -372,7 +374,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.iMedre.ecommerceIAP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
